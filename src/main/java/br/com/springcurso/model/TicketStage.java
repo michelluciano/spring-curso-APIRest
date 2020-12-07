@@ -1,5 +1,6 @@
 package br.com.springcurso.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,8 +21,13 @@ import lombok.Data;
 
 @Data
 @Entity
-public class TicketStage {
+public class TicketStage implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

@@ -17,8 +17,8 @@ import br.com.springcurso.model.enums.Role;
 import lombok.Data;
 
 @Data
-@Entity
-public class Usuario implements Serializable{
+@Entity(name = "user")
+public class User implements Serializable{
 	
 	/**
 	 * 
@@ -30,7 +30,7 @@ public class Usuario implements Serializable{
 	private Long id;
 	
 	@Column(length = 75, nullable = false)
-	private String nome;
+	private String name;
 	
 	@Column(length = 75, nullable = false, unique = true)
 	private String email;
@@ -42,10 +42,10 @@ public class Usuario implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	
-	@OneToMany(mappedBy = "usuario")
-	private List<Ticket> ticket = new ArrayList<Ticket>();
+	@OneToMany(mappedBy = "owner")
+	private List<Request> request = new ArrayList<Request>();
 	
-	@OneToMany(mappedBy = "usuario")
-	private List<TicketStage> stages = new ArrayList<TicketStage>();
+	@OneToMany(mappedBy = "owner")
+	private List<RequestStage> stages = new ArrayList<RequestStage>();
 
 }

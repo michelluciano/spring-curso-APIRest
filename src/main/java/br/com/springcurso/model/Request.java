@@ -1,7 +1,9 @@
 package br.com.springcurso.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,42 +14,44 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.springcurso.model.enums.TicketEstado;
+import br.com.springcurso.model.enums.RequestState;
 import lombok.Data;
 
 
+
 @Data
-@Entity
-public class TicketStage implements Serializable {
+@Entity(name = "request")
+public class Request implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(length = 75, nullable = false )
-	private String descricao;
+	private String subject;
+	private String description;
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataRealizacao;
+	private Date creationDate;
 	
 	@Column(length = 20, nullable = false)
 	@Enumerated(EnumType.STRING)
-	private TicketEstado estado;
+	private RequestState state;
 	
 	@ManyToOne
-	@JoinColumn(name = "ticket_id", nullable = false)
-	private Ticket ticket;
+	@JoinColumn(name = "owner_id", nullable = false)
+	private User owner;
 	
-	@ManyToOne
-	@JoinColumn(name = "usuario_id", nullable = false)
-	private Usuario usuario;
+	@OneToMany(mappedBy = "request")
+	private List<RequestStage> stages = new ArrayList<RequestStage>();
+	
+
 }

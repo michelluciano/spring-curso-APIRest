@@ -1,6 +1,6 @@
 package br.com.springcurso.model.enums;
 
-public enum TicketEstado {
+public enum RequestState {
 	ABERTO,
 	EM_PROGRESSO,
 	FECHADO

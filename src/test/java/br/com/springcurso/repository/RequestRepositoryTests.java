@@ -42,7 +42,7 @@ public class RequestRepositoryTests {
 		
 		Request createdRequest = requestRepository.save(request);
 		
-		assertThat(createdRequest.getId()).isEqualTo(1L);
+		assertThat(createdRequest.getId()).isEqualTo(6L);
 	}
 	
 	@Test
@@ -51,7 +51,7 @@ public class RequestRepositoryTests {
 		owner.setId(1L);
 		Request request = new Request();
 		
-		request.setId(1L);
+		request.setId(6L);
 		request.setSubject("Novo LapTop HP");
 		request.setDescription("Pretendo obter um laptopHP, com 16 GB de RAM");
 		request.setCreationDate(null);
@@ -67,7 +67,7 @@ public class RequestRepositoryTests {
 	@Test
 	public void getByIdTest() {
 		
-		Optional<Request> result = requestRepository.findById(1L);
+		Optional<Request> result = requestRepository.findById(6L);
 		
 		Request request = result.get();
 		
@@ -83,8 +83,14 @@ public class RequestRepositoryTests {
 	
 	@Test
 	public void listByOwnerIdTest() {
-		List<Request> requests = requestRepository.findAllByOwnerId(1L);
+		List<Request> requests = requestRepository.findAllByOwnerId(6L);
 		
 		assertThat(requests.size()).isEqualTo(1);
+	}
+	
+	@Test
+	public void updateStatusTest() {
+		Request affectedRows = requestRepository.updateStatus(6L, RequestState.EM_PROGRESSO);
+		assertThat(affectedRows).isEqualTo(1);
 	}
 }

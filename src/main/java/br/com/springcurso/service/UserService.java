@@ -42,7 +42,7 @@ public class UserService {
 		return users;
 	}
 	
-	public User Login(String email, String password) {
+	public User login(String email, String password) {
 		password = HashUtil.getSecurehash(password);
 			
 		Optional<User> result = userRepository.login(email, password);

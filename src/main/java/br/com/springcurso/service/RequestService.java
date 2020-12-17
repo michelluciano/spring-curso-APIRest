@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.springcurso.exception.NotFoundException;
 import br.com.springcurso.model.Request;
 import br.com.springcurso.model.enums.RequestState;
 import br.com.springcurso.repository.RequestRepository;
@@ -32,7 +33,8 @@ public class RequestService {
 	
 	public Request getById(Long id) {
 		Optional<Request> result = requestRepository.findById(id);
-		return result.get();
+		return result.orElseThrow(()-> new NotFoundException("There are not REQUEST with id = " + id));
+
 	}
 	
 	public List<Request> listAll() {

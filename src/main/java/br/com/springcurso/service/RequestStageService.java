@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.springcurso.exception.NotFoundException;
 import br.com.springcurso.model.RequestStage;
 import br.com.springcurso.model.enums.RequestState;
 import br.com.springcurso.repository.RequestRepository;
@@ -37,7 +38,7 @@ public class RequestStageService {
 	public RequestStage getById(Long id) {
 		
 		Optional<RequestStage> result =requestStageRepository.findById(id);
-		return result.get();
+		return result.orElseThrow(()-> new NotFoundException("There are not REQUEST STAGE with id = " + id));
 	}
 	
 	public List<RequestStage> listAllByRequestId(Long requestId){

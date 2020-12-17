@@ -39,7 +39,7 @@ public class RequestStageRepositoryTests {
 		stage.setId(null);
 		stage.setDescription("Foi comprado um novo laptop de marca HP e com 16 GB de RAM");
 		stage.setRealizationDate(new Date());
-		stage.setState(RequestState.FECHADO);
+		stage.setState(RequestState.CLOSE);
 		stage.setRequest(request);
 		stage.setOwner(owner);
 		

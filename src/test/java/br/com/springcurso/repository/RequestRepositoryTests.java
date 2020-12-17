@@ -36,7 +36,7 @@ public class RequestRepositoryTests {
 		request.setSubject("Novo LapTop HP");
 		request.setDescription("Pretendo obter um laptopHP");
 		request.setCreationDate(new Date());
-		request.setState(RequestState.ABERTO);
+		request.setState(RequestState.OPEN);
 		request.setOwner(owner);
 		request.setStages(null);
 		
@@ -55,7 +55,7 @@ public class RequestRepositoryTests {
 		request.setSubject("Novo LapTop HP");
 		request.setDescription("Pretendo obter um laptopHP, com 16 GB de RAM");
 		request.setCreationDate(null);
-		request.setState(RequestState.ABERTO);
+		request.setState(RequestState.OPEN);
 		request.setOwner(owner);
 		request.setStages(null);
 		
@@ -90,7 +90,7 @@ public class RequestRepositoryTests {
 	
 	@Test
 	public void updateStatusTest() {
-		Request affectedRows = requestRepository.updateStatus(6L, RequestState.EM_PROGRESSO);
+		Request affectedRows = requestRepository.updateStatus(6L, RequestState.IN_PROGRESS);
 		assertThat(affectedRows).isEqualTo(1);
 	}
 }

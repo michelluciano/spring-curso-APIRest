@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\projetos\SpringBoot\spring-curso"/>
 			<item value="C:\projetos\SpringBoot\spring-curso\Spring-curso-APIRESTfull"/>
 		</list>
 		<list key="projectNameTemplate">

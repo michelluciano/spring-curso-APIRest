@@ -2,9 +2,12 @@ package br.com.springcurso.resource;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -68,7 +71,7 @@ public class UserResource {
 	
 	//login
 	@PostMapping("/login")
-	public ResponseEntity<User> login (@RequestBody UserLogindto user){
+	public ResponseEntity<User> login (@RequestBody @Valid UserLogindto user){
 		User loggedUser = userService.login(user.getEmail(), user.getPassword());
 		return ResponseEntity.ok(loggedUser);
 	}
@@ -91,7 +94,7 @@ public class UserResource {
 	}
 	
 	@PatchMapping("/role/{id}")
-	public ResponseEntity<?> updateRole(@PathVariable(name = "id") Long id, @RequestBody UserUpdateRoledto userDto){
+	public ResponseEntity<?> updateRole(@PathVariable(name = "id") Long id, @RequestBody @Valid UserUpdateRoledto userDto){
 		User user = new User();
 		user.setId(id);
 		user.setRole(userDto.getRole());

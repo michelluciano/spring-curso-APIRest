@@ -3,9 +3,15 @@ package br.com.springcurso.resource.exception;
 import java.io.Serializable;
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter @Setter
 public class ApiError implements Serializable {
 
 	/**

@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.springcurso.dto.UserLogindto;
+import br.com.springcurso.dto.UserSavedto;
+import br.com.springcurso.dto.UserUpdateDto;
 import br.com.springcurso.dto.UserUpdateRoledto;
 import br.com.springcurso.model.Request;
 import br.com.springcurso.model.User;
@@ -39,14 +41,16 @@ public class UserResource {
 	
 	//save
 	@PostMapping
-	public ResponseEntity<User> save(@RequestBody User user){
-		User createdUser = userService.save(user);
+	public ResponseEntity<User> save(@RequestBody @Valid UserSavedto userdto){
+		User userToSave = userdto.TransformToUser();
+		User createdUser = userService.save(userToSave);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
 	}
 	
 	//update
 	@PutMapping("/{id}")
-	public ResponseEntity<User> update(@PathVariable(name = "id") Long id, @RequestBody User user){
+	public ResponseEntity<User> update(@PathVariable(name = "id") Long id, @RequestBody @Valid UserUpdateDto userdto){
+		User user =userdto.TransformToUser();
 		user.setId(id);
 		User updatedUser = userService.update(user);
 		return ResponseEntity.ok(updatedUser);

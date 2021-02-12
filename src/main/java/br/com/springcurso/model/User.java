@@ -17,11 +17,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import br.com.springcurso.model.enums.Role;
-import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "user")
 public class User implements Serializable{
 	
@@ -45,7 +48,7 @@ public class User implements Serializable{
 	@Column(length = 75, nullable = false)	
 	private String password;
 	
-	@Column(length = 20, nullable = false)
+	@Column(length = 20, nullable = false, updatable = false)
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	

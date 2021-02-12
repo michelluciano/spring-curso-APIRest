@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter @Setter
 public class UserUpdateRoledto {
 	
-	@NotNull
+	@NotNull(message = "Role required")
 	private Role role;
 	
 }

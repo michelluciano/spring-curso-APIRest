@@ -16,10 +16,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.com.springcurso.model.enums.RequestState;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter @Setter
 @Entity(name = "request_stage")
 public class RequestStage implements Serializable {
 	

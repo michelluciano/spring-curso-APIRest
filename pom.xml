@@ -13,9 +13,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-curso</name>
 	<description>Spring Boot - RESTfull API</description>
-
+	<packaging>war</packaging>
 	<properties>
 		<java.version>11</java.version>
+		<skipTests>true</skipTests>
 	</properties>
 
 	<dependencies>
@@ -41,6 +42,11 @@
 		<dependency>
 		    <groupId>org.mariadb.jdbc</groupId>
 		    <artifactId>mariadb-java-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

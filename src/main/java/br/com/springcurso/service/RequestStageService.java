@@ -11,7 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.springcurso.exception.NotFoundException;
-import br.com.springcurso.model.Request;
 import br.com.springcurso.model.RequestStage;
 import br.com.springcurso.model.enums.RequestState;
 import br.com.springcurso.pag.PageModel;

@@ -1,7 +1,5 @@
 package br.com.springcurso.resource;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,6 @@ import br.com.springcurso.dto.RequestSavedto;
 import br.com.springcurso.dto.RequestUpdatedto;
 import br.com.springcurso.model.Request;
 import br.com.springcurso.model.RequestStage;
-import br.com.springcurso.model.User;
 import br.com.springcurso.pag.PageModel;
 import br.com.springcurso.pag.PageRequestModel;
 import br.com.springcurso.service.RequestService;

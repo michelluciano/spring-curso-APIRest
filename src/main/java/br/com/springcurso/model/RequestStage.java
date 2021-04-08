@@ -17,7 +17,6 @@ import javax.persistence.TemporalType;
 
 import br.com.springcurso.model.enums.RequestState;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,9 +27,6 @@ import lombok.Setter;
 @Entity(name = "request_stage")
 public class RequestStage implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

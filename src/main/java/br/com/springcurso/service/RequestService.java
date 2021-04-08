@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import br.com.springcurso.exception.NotFoundException;
 import br.com.springcurso.model.Request;
-import br.com.springcurso.model.User;
 import br.com.springcurso.model.enums.RequestState;
 import br.com.springcurso.pag.PageModel;
 import br.com.springcurso.pag.PageRequestModel;
